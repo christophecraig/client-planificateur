@@ -1,28 +1,31 @@
 <template>
   <div id="app">
-
-    <Resources/>
+    <Resources>
+        <Resource/>
+    </Resources>
     <Skills/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import Resources from './components/Resources'
-import Skills from './components/Skills'
+import HelloWorld from "./components/HelloWorld";
+import Resources from "./components/Resources";
+import Resource from "./components/Resource";
+import Skills from "./components/Skills";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
+    Resource,
     Resources,
     Skills
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

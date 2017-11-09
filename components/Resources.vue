@@ -1,6 +1,6 @@
 <template>
   <ul>
-      <li v-for="resource of resources" :key="resource.id">
+      <li v-for="resource of resources" :key="resource.id" @click="expand(resource.id)">
           {{resource.alias}}
       </li>
   </ul>
@@ -8,12 +8,13 @@
 
 <script>
 import axios from "axios";
+
 export default {
   name: "Resources",
   data() {
     return {
-        resources: [],
-        errors: [],
+      resources: [],
+      errors: []
     };
   },
   created() {
@@ -27,6 +28,12 @@ export default {
       .catch(e => {
         this.errors.push(e);
       });
+  },
+  methods: {
+      expand (id) {
+          
+          console.log(id)
+      }
   }
 };
 </script>
