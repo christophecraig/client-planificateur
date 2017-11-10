@@ -1,21 +1,51 @@
 <template>
-  <div id="detailedResource">
+  <div id="detailedResource" @click="openModal">
+    <sweet-modal ref='modal'>
     <input type="number" min="1" name="id_resource" v-model="resource_id">
-      {{resourceInfo}}
+    <div v-if="resource.firstname">
+      <h4>{{resource.firstname}} {{resource.name}}</h4>
+      <h5><em>{{resource.alias}}</em></h5>
+
+      <p>Efficacité globale : {{resource.efficiency}}</p>
+      <div>Détail : 
+        <table>
+          <tbody>
+          <tr><th v-for="skill in resource.skills" :key="skill.name">{{skill.name}}</th></tr>
+          <tr><td v-for="skill in resource.skills" :key="skill.name + 'Value'">{{skill.efficiency}}</td></tr>
+          </tbody>
+        </table>
+
+      </div>
+      
+      <p><span v-if="resource.available === '1'">Disponible</span>
+      <span v-else>Indisponible</span></p>
+      </div>
+      <h4 v-else>L'id saisi est incorrect.</h4>
+</sweet-modal>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import { SweetModal, SweetModalTab } from "sweet-modal-vue";
 
 export default {
   name: "Resource",
+  components: {
+    SweetModal,
+    SweetModalTab
+  },
   data() {
     return {
-      resource_id: 1,
+      resource_id: 0,
       resource: {},
       errors: []
     };
+  },
+  methods: {
+    openModal() {
+      this.$refs.modal.open();
+    }
   },
   watch: {
     // Chaque fois que resource_id est modifié, on exécute la fonction suivante qui va chercher en base la resource d'id correspondant
@@ -39,6 +69,9 @@ export default {
     resourceInfo() {
       return this.resource.firstname + " " + this.resource.name;
     }
+  },
+  created() {
+    this.resource_id = 1;
   }
   // created() {
   //   console.log(this)
@@ -63,5 +96,8 @@ export default {
   top: 20%;
   left: 20%;
   right: 20%;
+}
+em {
+  text-align: center;
 }
 </style>
