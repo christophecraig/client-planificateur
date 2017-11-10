@@ -1,7 +1,7 @@
 <template>
   <div id="detailedResource" @click="openModal">
     <sweet-modal ref='modal'>
-    <input type="number" min="1" name="id_resource" v-model="resource_id">
+    <input type="number" min="1" name="id_resource" @keydown="isNumber" v-model="resource_id">
     <div v-if="resource.firstname">
       <h4>{{resource.firstname}} {{resource.name}}</h4>
       <h5><em>{{resource.alias}}</em></h5>
@@ -45,6 +45,14 @@ export default {
   methods: {
     openModal() {
       this.$refs.modal.open();
+    }, 
+    // Gérer le cas où la touche appuyée n'est pas un nombre ( '+', '-', '/', '*', '%', '.', ',')
+    isNumber(e) {
+        console.log(parseInt(e.key))
+      if (parseInt(e.key != NaN)) {
+        e.prevent();
+        e.stop();
+      } 
     }
   },
   watch: {
