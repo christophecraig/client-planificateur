@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <Resources>
+    <!-- <Resources> -->
         <Resource/>
-    </Resources>
+    <!-- </Resources> -->
     <Skills/>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
 import Resources from "./components/Resources";
 import Resource from "./components/Resource";
 import Skills from "./components/Skills";
