@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Login/>
     <!-- <Resources> -->
         <Resource/>
     <!-- </Resources> -->
@@ -11,10 +12,12 @@
 import Resources from "./components/Resources";
 import Resource from "./components/Resource";
 import Skills from "./components/Skills";
+import Login from "./components/Login";
 
 export default {
   name: "app",
   components: {
+    Login,
     Resource,
     Resources,
     Skills
