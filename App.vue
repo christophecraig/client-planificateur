@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Projects/>
     <Login/>
     <!-- <Resources> -->
         <Resource/>
@@ -13,6 +14,7 @@ import Resources from "./components/Resources";
 import Resource from "./components/Resource";
 import Skills from "./components/Skills";
 import Login from "./components/Login";
+import Projects from "./components/Projects"
 
 export default {
   name: "app",
@@ -20,7 +22,8 @@ export default {
     Login,
     Resource,
     Resources,
-    Skills
+    Skills,
+    Projects
   }
 };
 </script>
