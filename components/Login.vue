@@ -34,7 +34,10 @@ export default {
     },
     connect() {
         axios
-        .post('http://localhost/~ccraig/planificateur/rest/login/login')
+        .post('http://localhost/~ccraig/planificateur/rest/login/login', {
+          login: this.login,
+          password: this.password
+        })
         .then(response => {
             console.log(response)
         })

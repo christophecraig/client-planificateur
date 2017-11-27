@@ -1,6 +1,7 @@
 <template>
   <div id="detailedResource" @click="openModal">
     <sweet-modal ref='modal'>
+      <h2>Trouver une ressource</h2>
     <input type="number" min="1" name="id_resource" @keydown="isNumber" v-model="resource_id">
     <div v-if="resource.firstname">
       <h4>{{resource.firstname}} {{resource.name}}</h4>
@@ -20,7 +21,8 @@
       <p><span v-if="resource.available === '1'">Disponible</span>
       <span v-else>Indisponible</span></p>
       </div>
-      <h4 v-else>L'id saisi est incorrect.</h4>
+      <h4 v-else-if="resource_id">L'id saisi est incorrect.</h4>
+      <h4 v-else>Veuillez saisir un id de ressource.</h4>
 </sweet-modal>
   </div>
 </template>
@@ -105,7 +107,12 @@ export default {
   left: 20%;
   right: 20%;
 }
+
+.sweet-content-content {
+  text-align: left;
+}
+
 em {
-  text-align: center;
+  // text-align: center;
 }
 </style>
