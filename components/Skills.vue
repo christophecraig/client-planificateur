@@ -1,14 +1,21 @@
 <template>
   <ul>
-    <li v-for="skill of skills" :key="skill.id">{{skill}}</li>
+    <Skill v-for="skill of skills" :key="skill.id">
+      {{skill.name}}
+    </Skill>
   </ul>
 </template>
 
 <script>
 import axios from 'axios'
+import Skill from './Skill'
+
 
 export default {
   name: 'Skills',
+  components: {
+    Skill
+  },
   data() {
     return {
       skills: [],
@@ -23,7 +30,6 @@ export default {
         console.log('test');
         this.skills = response.data;
         console.log(this.skills);
-        console.log('lol');
       })
       .catch(e => {
         this.errors.push(e);

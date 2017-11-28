@@ -83,18 +83,6 @@ export default {
   created() {
     this.resource_id = 1;
   }
-  // created() {
-  //   console.log(this)
-  //   axios
-  //     .get("http://localhost/~ccraig/planificateur/rest/resource/get/" + this.resourceId)
-  //     .then(response => {
-  //       console.log(response.data);
-  //       this.resource = response.data;
-  //     })
-  //     .catch(e => {
-  //       this.errors.push(e);
-  //     });
-  // }
 };
 </script>
 

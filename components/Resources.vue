@@ -1,16 +1,23 @@
 <template>
+  <div>
+    <Skills></Skills>
   <ul>
-      <li v-for="resource of resources" :key="resource.id" @click="expand(resource.id)">
+      <li v-for="resource of resources" :key="resource.id" ><!--@click="expand(resource.id)"-->
           {{resource.alias}}
       </li>
   </ul>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+import Skills from './Skills'
 
 export default {
   name: "Resources",
+  components: {
+    Skills
+  },
   data() {
     return {
       resources: [],

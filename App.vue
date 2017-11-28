@@ -1,11 +1,8 @@
 <template>
   <div id="app">
-    <Projects/>
+    <ProjectsSlider/>
     <Login/>
-    <!-- <Resources> -->
-        <Resource/>
-    <!-- </Resources> -->
-    <Skills/>
+    <Resources/>
   </div>
 </template>
 
@@ -14,7 +11,7 @@ import Resources from "./components/Resources";
 import Resource from "./components/Resource";
 import Skills from "./components/Skills";
 import Login from "./components/Login";
-import Projects from "./components/Projects"
+import ProjectsSlider from "./components/ProjectsSlider"
 
 export default {
   name: "app",
@@ -23,7 +20,7 @@ export default {
     Resource,
     Resources,
     Skills,
-    Projects
+    ProjectsSlider
   }
 };
 </script>
